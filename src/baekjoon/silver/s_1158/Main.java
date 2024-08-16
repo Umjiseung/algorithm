@@ -1,8 +1,8 @@
 package baekjoon.silver.s_1158;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.StringTokenizer;
 
 public class Main {
@@ -13,33 +13,19 @@ public class Main {
 
         int n = Integer.parseInt(st.nextToken());
         int k = Integer.parseInt(st.nextToken());
-        int loop = 0;
+        Queue<Integer> queue = new LinkedList<>();
 
-        List<Integer> people = new ArrayList<>();
-        for (int i = 1; i <= n; i++) {
-            people.add(i);
+        for (int i = 1; i <= n; n++) {
+            queue.add(i);
         }
 
-        List<Integer> list = new ArrayList<>();
-        while (!people.isEmpty()) {
-            loop += k;
-            System.out.println(k);
-            System.out.println("loop = " + loop);
+        while (!queue.isEmpty()) {
 
-            if (loop > people.size() + 1) {
-                loop -= n ;
-                list.add(loop);
-                people.remove(loop - 1);
-            } else {
-                list.add(people.get(loop - 1));
-                people.remove(loop - 1);
-            }
-            System.out.println(people);
         }
-        System.out.println(list);
-        bw.flush();
-        bw.close();
-        br.close();
+
+
+
+
     }
 
 
