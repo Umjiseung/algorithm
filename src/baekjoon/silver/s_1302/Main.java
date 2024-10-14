@@ -3,10 +3,8 @@ package baekjoon.silver.s_1302;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
+
 
 public class Main {
     public static void main(String[] args) throws IOException {
@@ -14,36 +12,55 @@ public class Main {
 
         int n = Integer.parseInt(br.readLine());
 
-        String[] books = new String[n];
+        String[] stringArray = new String[n];
+        Set<String> set = new HashSet<>();
+        Map<String, Integer> map = new HashMap<>();
 
         for (int i = 0; i < n; i++) {
-            books[i] = br.readLine();
+            stringArray[i] = br.readLine();
+            set.add(stringArray[i]);
         }
 
-        Set<String> bookSet = new HashSet<>();
-        for (int i = 0; i < n; i++) {
-            bookSet.add(books[i]);
-        }
-
-        Map<String, Set<String>> map = new HashMap<>();
-
-        for (String book : bookSet) {
-            map.put(book, new HashSet<>());
-        }
-
-        for (int i = 0; i < n; i++) {
-            if (map.containsKey(books[i])) {
-                map.get(books[i]).add(books[i]);
+        int big = 0;
+        for (String i: set) {
+            for (int j = 0; j < n; j++) {
+                if (i.equals(stringArray[j])) {
+                    map.put(stringArray[j], map.getOrDefault(stringArray[j], 0) + 1);
+                    if (map.get(stringArray[j]) > big) {
+                        big = map.get(stringArray[j]);
+                    }
+                }
             }
         }
 
+        String sum = "";
+        List<String> list = new ArrayList<>();
 
-        String mostBook;
-        for (String book : bookSet) {
 
-            if (map.containsKey(book)) {
-
+        for (String i: set) {
+            if (big == map.get(i)) {
+                list.add(i);
             }
         }
+
+        if (!list.isEmpty()) {
+            String[] strings = list.toArray(new String[list.size()]);
+            Arrays.sort(strings);
+
+            for (int i = 0; i < strings.length; i++) {
+                System.out.println(strings[i]);
+                System.exit(0);
+            }
+        }
+
+        int count = 0;
+        for (String i: set) {
+            if (map.get(i) > count) {
+                count = map.get(i);
+                sum = i;
+            }
+        }
+
+        System.out.println(sum);
     }
 }
