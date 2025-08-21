@@ -1,4 +1,4 @@
-package programmers.one_12947;
+package programmers.one.one_12947;
 
 public class main {
 }

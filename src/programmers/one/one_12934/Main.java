@@ -1,4 +1,4 @@
-package programmers.one_12934;
+package programmers.one.one_12934;
 // https://school.programmers.co.kr/learn/courses/30/lessons/12934
 public class Main {
     public static void main(String[] args) {

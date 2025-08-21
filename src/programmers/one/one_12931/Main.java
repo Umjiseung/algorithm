@@ -1,4 +1,4 @@
-package programmers.one_12931;
+package programmers.one.one_12931;
 
 public class Main {
     public static void main(String[] args) {

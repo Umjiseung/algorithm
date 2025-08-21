@@ -1,4 +1,4 @@
-package programmers.two_12939;
+package programmers.two.two_12939;
 
 import java.util.Arrays;
 

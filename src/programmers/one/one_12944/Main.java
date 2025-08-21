@@ -1,6 +1,4 @@
-package programmers.one_12944;
-
-import java.util.Scanner;
+package programmers.one.one_12944;
 
 public class Main {
 }
